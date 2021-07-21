@@ -16,4 +16,10 @@ export class RestaurantsServices {
             .map(response => response.json())
             .catch(ErrorHandler.handleError);
     }
+
+    getRestaurantById(id: string) {
+        return this.http.get(`${MEAT_API}/restaurants/${id}`)
+            .map(response => response.json())
+            .catch(ErrorHandler.handleError);
+    }
 }

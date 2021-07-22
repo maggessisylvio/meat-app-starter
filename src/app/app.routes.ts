@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { OrderComponent } from "./order/order.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { MenuComponent } from "./pages/restaurant-detail/menu/menu.component";
@@ -17,5 +18,6 @@ export const ROUTES: Routes = [
             { path: 'menu', component: MenuComponent },
             { path: 'reviews', component: ReviewsComponent }
         ]
-    }
+    },
+    { path: 'order', component: OrderComponent }
 ]

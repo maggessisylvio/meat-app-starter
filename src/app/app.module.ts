@@ -19,6 +19,7 @@ import { MenuItemComponent } from './pages/restaurant-detail/menu-item/menu-item
 import { ReviewsComponent } from './pages/restaurant-detail/reviews/reviews.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { OrderComponent } from './order/order.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { OrderComponent } from './order/order.component';
     BrowserModule,
     HttpModule,
     RouterModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    FormsModule
   ],
   providers: [RestaurantsServices, ShoppingCartService, { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]

@@ -17,8 +17,12 @@ export class OrderComponent implements OnInit {
 
   constructor(private orderService: OrderService) { }
 
-  ngOnInit() {
-    console.log(this.getCartItems())
+  delivery: number = 8;
+
+  ngOnInit() { }
+
+  getItemsValue(): number {
+    return this.orderService.getItemsValue();
   }
 
   getCartItems(): CartItem[] {
@@ -35,5 +39,9 @@ export class OrderComponent implements OnInit {
 
   remove(item: CartItem) {
     this.orderService.remove(item);
+  }
+
+  checkOrder(order: any) {
+    console.log(order);
   }
 }

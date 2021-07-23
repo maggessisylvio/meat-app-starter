@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ROUTES } from './app.routes';
-import { AboutComponent } from './pages/about/about.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { OrderSummaryComponent } from './pages/order-summary/order-summary.component';
@@ -34,7 +33,6 @@ import { RatingComponent } from './shared/rating/rating.component';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    AboutComponent,
     RestaurantsComponent,
     RestaurantComponent,
     RestaurantDetailComponent,

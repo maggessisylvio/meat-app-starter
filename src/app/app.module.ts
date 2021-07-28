@@ -18,6 +18,8 @@ import { OrderService } from './services/order.service';
 import { RestaurantsServices } from './services/restaurants.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,10 @@ import { SharedModule } from './shared/shared.module';
     HttpModule,
     RouterModule,
     RouterModule.forRoot(ROUTES),
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
-  providers: [RestaurantsServices, ShoppingCartService, OrderService, { provide: LOCALE_ID, useValue: 'pt-BR' }],
+  providers: [RestaurantsServices, ShoppingCartService, OrderService, NotificationService, { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

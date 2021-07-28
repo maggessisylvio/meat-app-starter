@@ -21,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationService } from './services/notification.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SharedModule,
     BrowserAnimationsModule
   ],
-  providers: [RestaurantsServices, ShoppingCartService, OrderService, NotificationService, { provide: LOCALE_ID, useValue: 'pt-BR' }],
+  providers: [
+    RestaurantsServices,
+    ShoppingCartService,
+    OrderService,
+    NotificationService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

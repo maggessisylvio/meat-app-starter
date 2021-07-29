@@ -1,5 +1,5 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -40,7 +40,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule,
     RouterModule.forRoot(ROUTES),
     SharedModule,

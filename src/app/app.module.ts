@@ -24,6 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LoginComponent } from './security/login/login.component';
 import { LoginService } from './services/login.service';
+import { LoggedInGuard } from './security/loggedin.guard';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { LoginService } from './services/login.service';
     OrderService,
     NotificationService,
     LoginService,
+    LoggedInGuard,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],

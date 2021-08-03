@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { ErrorHandler, LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -28,6 +28,7 @@ import { LoggedInGuard } from './security/loggedin.guard';
 import { UserDetailComponent } from './pages/header/user-detail/user-detail.component';
 import { LeaveOrderGuard } from './pages/order/leave-order.guard';
 import { AuthInterceptor } from './security/auth.interceptor';
+import { ApplicationErrorHandler } from './app.error-handler';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AuthInterceptor } from './security/auth.interceptor';
     LoginService,
     LoggedInGuard,
     LeaveOrderGuard,
+    { provide: ErrorHandler, useClass: ApplicationErrorHandler },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: LOCALE_ID, useValue: 'pt-BR' }

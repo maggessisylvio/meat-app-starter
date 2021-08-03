@@ -3,9 +3,6 @@
 
 <section class="content">
   <section class="invoice">
-    {{ orderForm.valid | json }}
-    {{ orderForm.value | json }}
-
     <form [formGroup]="orderForm" novalidate>
       <div class="row">
         <div class="col-xs-12">

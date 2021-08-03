@@ -1,5 +1,5 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -25,6 +25,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LoginComponent } from './security/login/login.component';
 import { LoginService } from './services/login.service';
 import { LoggedInGuard } from './security/loggedin.guard';
+import { UserDetailComponent } from './pages/header/user-detail/user-detail.component';
+import { LeaveOrderGuard } from './pages/order/leave-order.guard';
+import { AuthInterceptor } from './security/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { LoggedInGuard } from './security/loggedin.guard';
     ReviewsComponent,
     OrderSummaryComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,8 @@ import { LoggedInGuard } from './security/loggedin.guard';
     NotificationService,
     LoginService,
     LoggedInGuard,
+    LeaveOrderGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],

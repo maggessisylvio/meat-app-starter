@@ -21,7 +21,14 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationService } from './services/notification.service';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+
+import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
+import locatePt from '@angular/common/locales/pt';
+
+registerLocaleData(locatePt, 'pt');
+
+
 import { LoginComponent } from './security/login/login.component';
 import { LoginService } from './services/login.service';
 import { LoggedInGuard } from './security/loggedin.guard';
@@ -66,7 +73,7 @@ import { ApplicationErrorHandler } from './app.error-handler';
     { provide: ErrorHandler, useClass: ApplicationErrorHandler },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: LOCALE_ID, useValue: 'pt-BR' }
+    { provide: LOCALE_ID, useValue: 'pt' }
   ],
   bootstrap: [AppComponent]
 })
